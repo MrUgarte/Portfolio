@@ -1,10 +1,9 @@
-name: Deploy Portoflio
+name: Deploy Astro Project
 
 on:
   push:
     branches:
-      - main  
-  pull_request:
+      - main
 
 jobs:
   build:
@@ -17,16 +16,19 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '18' 
+        node-version: '18'
+
     - name: Install dependencies
       run: npm install
 
     - name: Build the project
       run: npm run build
 
+    - name: Create .nojekyll to bypass Jekyll processing
+      run: touch ./dist/.nojekyll
+
     - name: Deploy to GitHub Pages
-      if: github.ref == 'refs/heads/main'
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GH_PAT }}
-        publish_dir: ./dist  # Directorio donde se genera la build, asegurate de que sea el correcto
+        publish_dir: ./dist
