@@ -1,6 +1,8 @@
 ---
 import React from '../icons/React.astro';
 import Vite from '../icons/Vite.astro';
+import JS from '../icons/JavaScript.astro';
+import GitHubIcon from '../icons/GitHub.astro';
 
 const TAGS = {
     REACT:{
@@ -13,6 +15,11 @@ const TAGS = {
         class:'bg-white/10 text-white',
         icon: Vite,
     },
+    JS:{
+        name:'JavaScript',
+        class:'bg-white/10 text-white',
+        icon: JS,
+    },   
 }
 
 const PROJECT = [
@@ -24,12 +31,20 @@ const PROJECT = [
         image:'projects/project1.webp',
         tags:[TAGS.REACT, TAGS.VITE],
     },
+    {
+        title:'Web Catalogo',
+        description: 'Web estilo catalogo, responsive, creado con Vite/Vanilla code',
+        link: 'https://mrugarte.github.io/WebCatalogo/',
+        github: 'https://github.com/MrUgarte/WebCatalogo',
+        image:'projects/project2.webp',
+        tags:[TAGS.JS, TAGS.VITE],
+    },
 ]
 ---
 
 {
     PROJECT.map(({title, description, tags, image, github, link}) => (
-        <article>
+        <article class="mb-20">
             <h3 class="text-2xl font-semibold text-green-200 mb-2">{title}</h3>
             <p class="text-white text-lg mb-4 text-pretty">{description}</p>
             <ul class="flex gap-x-2 flew-row mb-2">
@@ -39,10 +54,12 @@ const PROJECT = [
                             <tag.icon class="size-4" />
                             {tag.name}
                         </span>
+                        
                     </li>
                 ))}
+                <a  href ={github} class={`flex gap-x-2 rounded-full text-sm bg-white/10 text-white py-1 px-2`} target="_blank"><GitHubIcon class="size-4 md:size-5"></GitHubIcon></a>
             </ul>
-            <a href="https://mrugarte.github.io/React-followCard-tw/" target="_blank" title="TwitterCards">
+            <a href={link} target="_blank" title={title}>
                 <img
                 
                 class="rounded shadow-2xl shadow-white/15" 
