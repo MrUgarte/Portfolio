@@ -3,6 +3,7 @@ import React from '../icons/React.astro';
 import Vite from '../icons/Vite.astro';
 import JS from '../icons/JavaScript.astro';
 import GitHubIcon from '../icons/GitHub.astro';
+import Python from '../icons/Python.astro';
 
 const TAGS = {
     REACT:{
@@ -20,6 +21,11 @@ const TAGS = {
         class:'bg-white/10 text-white',
         icon: JS,
     },   
+    PYTHON:{
+        name:'Python',
+        class:'bg-white/10 text-white',
+        icon: Python,
+    },
 }
 
 const PROJECT = [
@@ -38,6 +44,14 @@ const PROJECT = [
         github: 'https://github.com/MrUgarte/WebCatalogo',
         image:'projects/project2.webp',
         tags:[TAGS.JS, TAGS.VITE],
+    },
+    {
+        title:'Python Projects',
+        description: 'Proyectos creados con Python, Web Scraping, data analysis',
+        link: 'https://github.com/MrUgarte/Python-Projects-Collection',
+        github: 'https://github.com/MrUgarte/Python-Projects-Collection',
+        image:'projects/python.webp',
+        tags:[TAGS.PYTHON],
     },
 ]
 ---
